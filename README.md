@@ -22,6 +22,7 @@ Follow these steps to set up the project locally:
 ```bash
 npm create vite@latest my-portfolio
 cd my-portfolio
+npm install
 ```
 ### 2️⃣ Install Tailwind CSS and Plugin
 ```bash
