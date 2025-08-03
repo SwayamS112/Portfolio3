@@ -15,7 +15,6 @@ const Navbar = () => {
         {/* Desktop Navigation */}
         <ul className="hidden md:flex flex-1 justify-center space-x-8 font-medium text-white">
           <li><a href="#home" className="hover:text-[#64ffda] transition-colors">Home</a></li>
-          <li><a href="#about" className="hover:text-[#64ffda] transition-colors">About</a></li>
           <li><a href="#skills" className="hover:text-[#64ffda] transition-colors">Skills</a></li>
           <li><a href="#projects" className="hover:text-[#64ffda] transition-colors">Projects</a></li>
           <li><a href="#contact" className="hover:text-[#64ffda] transition-colors">Contact</a></li>
@@ -23,14 +22,25 @@ const Navbar = () => {
 
         {/* Resume Button + Work Badge (Desktop Only) */}
         <div className="hidden md:flex items-center space-x-4">
-          <a
-            href="/assets/resume.pdf"
-            download
-            className="relative group inline-block px-5 py-2 border border-[#64ffda] text-[#64ffda] rounded-md font-medium overflow-hidden transition duration-300 hover:bg-[#64ffda]/10"
-          >
-            <span className="relative z-10">Resume</span>
-            <span className="absolute left-0 top-0 w-full h-full bg-[#64ffda]/20 opacity-0 group-hover:opacity-100 transition duration-300 blur-sm"></span>
-          </a>
+        <a
+  href="/assets/resume.pdf"
+  download
+  className="relative group inline-block px-5 py-2 border border-[#64ffda] text-[#64ffda] rounded-full font-medium overflow-hidden transition duration-300 hover:bg-[#64ffda]/10"
+>
+  {/* Default Text */}
+  <span className="relative z-10 block group-hover:opacity-0 transition-opacity duration-200">
+    Resume
+  </span>
+
+  {/* Hover Text */}
+  <span className="absolute inset-0 flex items-center justify-center z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+    Download
+  </span>
+
+  {/* Glow/Blur Background */}
+  <span className="absolute left-0 top-0 w-full h-full bg-[#64ffda]/20 opacity-0 group-hover:opacity-100 transition duration-300 blur-sm"></span>
+</a>
+
 
           <span className="bg-[#64ffda]/10 border border-[#64ffda] text-[#64ffda] px-4 py-2 rounded-full font-semibold text-sm shadow-sm">
             Available for work
@@ -39,9 +49,13 @@ const Navbar = () => {
 
         {/* Hamburger Menu (Mobile) */}
         <div className="md:hidden flex items-center">
-          <button onClick={() => setIsOpen(!isOpen)} className="text-white text-2xl focus:outline-none">
-            {isOpen ? <HiX /> : <HiMenu />}
-          </button>
+          <button
+           onClick={() => setIsOpen(!isOpen)}
+           className="text-white text-2xl focus:outline-none"
+           aria-label={isOpen ? "Close menu" : "Open menu"}
+         >
+           {isOpen ? <HiX /> : <HiMenu />}
+         </button>
         </div>
       </div>
 

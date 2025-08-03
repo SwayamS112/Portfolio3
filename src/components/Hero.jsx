@@ -4,22 +4,9 @@ import { motion } from "framer-motion";
 const Hero = () => {
   return (
     <section
-      id="home"
-      className="relative h-screen w-full text-white overflow-hidden flex items-center justify-center"
-    >
-      {/* 🔹 Background Coding Video */}
-      <video
-        autoPlay
-        loop
-        muted
-        playsInline
-        className="absolute inset-0 w-full h-full object-cover z-0 opacity-90"
-      >
-        <source src="/assets/coding.mp4" type="video/mp4" />
-      </video>
+  id="home"
+  className="relative min-h-[calc(100vh-64px)] w-full text-white overflow-hidden flex items-center justify-center z-10 pt-24 px-4 sm:px-6 lg:px-0">
 
-      {/* 🔹 Soft Transparent Overlay */}
-      <div className="absolute inset-0 bg-[#0b0b0b]/70 backdrop-blur-sm z-10" />
 
       {/* 🔹 Foreground Content */}
       <motion.div
@@ -34,15 +21,17 @@ const Hero = () => {
             <p className="text-[#64ffda] text-base font-mono">01.</p>
             <div className="h-0.5 w-12 bg-[#64ffda]/40 rounded" />
           </div>
-          <h1 className="text-4xl md:text-6xl font-extrabold leading-tight">
-            Hello, I'm <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#8f43ff] via-pink-400 to-[#ff5e62]">
-              Swayam Sood
-            </span>
-          </h1>
-          <p className="text-lg md:text-xl text-gray-200 max-w-xl">
-            I'm a passionate Full Stack Developer specializing in building exceptional digital experiences and beautiful user interfaces.
-          </p>
+          <h1 className="text-3xl sm:text-4xl md:text-6xl font-extrabold leading-tight">
+           Hello, I'm <br />
+           <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#8f43ff] via-pink-400 to-[#ff5e62]">
+             Swayam Sood
+           </span>
+         </h1>
+
+          <p className="text-base sm:text-lg md:text-xl text-gray-200 max-w-xl leading-relaxed">
+             I'm a passionate Full Stack Developer specializing in building exceptional digital experiences and beautiful user interfaces.
+           </p>
+
           {/* About Me Content */}
           <div className="mt-2 space-y-2 text-gray-300 text-base max-w-xl">
             <p>
@@ -103,10 +92,10 @@ const Hero = () => {
               </div>
             </div>
             <img
-              src="/assets/profile.png"
-              alt="Swayam Sood"
-              className="rounded-b-xl w-full h-[340px] object-cover"
-            />
+               src="/assets/profile.png"
+               alt="Profile photo of Swayam Sood"
+               className="rounded-b-xl w-full h-[340px] object-cover"
+             />
           </div>
         </motion.div>
       </motion.div>

@@ -62,7 +62,7 @@ const Skills = () => {
       <div className="max-w-6xl mx-auto">
         {/* Section Number and Divider */}
         <div className="flex items-center gap-3 mb-4">
-          <p className="text-[#64ffda] text-base font-mono">03.</p>
+          <p className="text-[#64ffda] text-base font-mono">02.</p>
           <div className="h-0.5 w-12 bg-[#64ffda]/40 rounded" />
         </div>
         <h2 className="text-4xl font-bold mb-2">Technical Expertise</h2>

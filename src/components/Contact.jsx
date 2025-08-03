@@ -32,7 +32,7 @@ const Contact = () => {
         {/* LEFT: Contact Info */}
         <div className="flex-1 text-center md:text-left space-y-8 md:self-start">
           <div className="flex items-center gap-3 mb-2 justify-center md:justify-start">
-            <p className="text-[#64ffda] text-lg font-mono">05.</p>
+            <p className="text-[#64ffda] text-lg font-mono">04.</p>
             <div className="h-0.5 w-12 bg-[#64ffda]/40 rounded" />
           </div>
           <h2 className="text-5xl font-bold mb-2">Get In Touch</h2>
