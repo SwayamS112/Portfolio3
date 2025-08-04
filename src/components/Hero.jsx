@@ -21,7 +21,7 @@ const Hero = () => {
             <p className="text-[#64ffda] text-base font-mono">01.</p>
             <div className="h-0.5 w-12 bg-[#64ffda]/40 rounded" />
           </div>
-          <h1 className="text-3xl sm:text-4xl md:text-6xl font-extrabold leading-tight">
+          <h1 className="text-4xl sm:text-4xl md:text-6xl font-extrabold leading-tight">
            Hello, I'm <br />
            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#8f43ff] via-pink-400 to-[#ff5e62]">
              Swayam Sood

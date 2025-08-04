@@ -8,7 +8,7 @@ const projects = [
     github: "https://github.com/SwayamS112/Spend-Sense2",
     live: "https://example.com/spendsense",
     tech: ["React", "Tailwind", "MongoDB", "Chart.js"],
-    date: "2024",
+    date: "2025",
     image: "https://via.placeholder.com/400x160?text=Project+Demo"
   },
   {
@@ -16,28 +16,28 @@ const projects = [
     desc: "College event platform for viewing and registering for campus events.",
     github: "https://github.com/SwayamS112/Event_Stalker-Project",
     live: "https://example.com/campusconnect",
-    tech: ["Node", "Express", "MongoDB"],
+    tech: ["Node", "Express", "MongoDB", "HTML", "CSS", "JavaScript"],
     date: "2023",
     image: "https://via.placeholder.com/400x160?text=Project+Demo"
   },
   {
-    title: "Portfolio Website",
+    title: "Portfolio2 Website",
     desc: "My personal portfolio showcasing full-stack projects.",
     github: "https://github.com/SwayamS112/portfolio2",
-    live: "https://example.com/portfolio",
+    live: "https://portfolio2-sand-kappa.vercel.app/",
     tech: ["React", "TailwindCSS"],
     date: "2024",
     image: "https://via.placeholder.com/400x160?text=Project+Demo"
   },
-  {
-    title: "Google Search Clone",
-    desc: "A basic project: a clone of Google search (UI only, no advanced features).",
-    github: "https://github.com/SwayamS112/google-search-clone", // Use your real repo if available, else keep as placeholder
-    live: "https://example.com/google-search-clone",
-    tech: ["React", "CSS"],
-    date: "2023",
-    image: "https://via.placeholder.com/400x160?text=Google+Search+Clone"
-  },
+  // {
+  //   title: "Google Search Clone",
+  //   desc: "A basic project: a clone of Google search (UI only, no advanced features).",
+  //   github: "https://github.com/SwayamS112/google-search-clone", 
+  //   live: "https://example.com/google-search-clone",
+  //   tech: ["React", "CSS"],
+  //   date: "2023",
+  //   image: "https://via.placeholder.com/400x160?text=Google+Search+Clone"
+  // },
 ];
 
 const Projects = () => {
