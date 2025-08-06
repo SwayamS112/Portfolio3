@@ -51,11 +51,14 @@ const categoryHeadings = {
 
 const Skills = () => {
   const [selected, setSelected] = useState("All");
+  const [showAll, setShowAll] = useState(false);
 
   const filteredSkills =
     selected === "All"
       ? skills
       : skills.filter((skill) => skill.category === selected);
+
+  const visibleSkills = showAll ? filteredSkills : filteredSkills.slice(0, 6);
 
   return (
     <section id="skills" className="py-20 px-4 text-white relative rounded-2xl my-8">
@@ -69,12 +72,16 @@ const Skills = () => {
         <p className="text-gray-300 mb-10 max-w-2xl">
           A comprehensive overview of my technical skills across the full development stack, from frontend frameworks to cloud infrastructure.
         </p>
+        
         {/* Filter Buttons */}
         <div className="flex gap-4 mb-10 flex-wrap">
           {categories.map((cat) => (
             <button
               key={cat.value}
-              onClick={() => setSelected(cat.value)}
+              onClick={() => {
+                setSelected(cat.value);
+                setShowAll(false); // Reset when category changes
+              }}
               className={`px-5 py-2 rounded-full font-semibold border transition-all duration-200 backdrop-blur-md
                 ${selected === cat.value
                   ? "bg-[#64ffda]/20 border-[#64ffda] text-[#64ffda] shadow"
@@ -85,12 +92,15 @@ const Skills = () => {
             </button>
           ))}
         </div>
+        
         {/* Category Heading */}
         <h3 className="text-2xl font-semibold mb-6 text-[#64ffda]">
           {categoryHeadings[selected]}
         </h3>
+
+        {/* Skills Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-          {filteredSkills.map((skill, idx) => (
+          {visibleSkills.map((skill, idx) => (
             <motion.div
               key={skill.name}
               initial={{ opacity: 0, y: 30 }}
@@ -116,6 +126,20 @@ const Skills = () => {
             </motion.div>
           ))}
         </div>
+
+        {/* Show More / Show Less Button - Visible only on Mobile */}
+        {/* Show More / Show Less Button - Visible on All Screens */}
+         {filteredSkills.length > 6 && (
+           <div className="mt-8 text-center">
+             <button
+               onClick={() => setShowAll(!showAll)}
+               className="px-6 py-3 rounded-full bg-[#64ffda]/20 text-[#64ffda] border border-[#64ffda] font-semibold hover:bg-[#64ffda]/30 transition-all"
+             >
+              {showAll ? "Show Less" : "Show More"}
+             </button>
+           </div>
+         )}
+
       </div>
     </section>
   );
