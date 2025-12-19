@@ -1,84 +1,110 @@
-import React, { useState } from "react";
-import { HiMenu, HiX } from "react-icons/hi"; // Add react-icons if not already
+import { useEffect, useState } from "react";
 
-const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
+const sections = ["home", "about", "portfolio", "contact"];
 
-  return (
-    <nav className="fixed top-0 left-0 w-full z-50 bg-white/10 backdrop-blur-md shadow-md border-b border-white/20">
-      <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
-        {/* Logo */}
-        <div className="flex items-center">
-          <img src="/assets/logo.png" alt="Logo" className="w-10 h-10 rounded-full" />
-        </div>
-
-        {/* Desktop Navigation */}
-        <ul className="hidden md:flex flex-1 justify-center space-x-8 font-medium text-white">
-          <li><a href="#home" className="hover:text-[#64ffda] transition-colors">Home</a></li>
-          <li><a href="#skills" className="hover:text-[#64ffda] transition-colors">Skills</a></li>
-          <li><a href="#projects" className="hover:text-[#64ffda] transition-colors">Projects</a></li>
-          <li><a href="#contact" className="hover:text-[#64ffda] transition-colors">Contact</a></li>
-        </ul>
-
-        {/* Resume Button + Work Badge (Desktop Only) */}
-        <div className="hidden md:flex items-center space-x-4">
-        <a
-  href="/assets/resume.pdf"
-  download
-  className="relative group inline-block px-5 py-2 border border-[#64ffda] text-[#64ffda] rounded-full font-medium overflow-hidden transition duration-300 hover:bg-[#64ffda]/10"
->
-  {/* Default Text */}
-  <span className="relative z-10 block group-hover:opacity-0 transition-opacity duration-200">
-    Resume
-  </span>
-
-  {/* Hover Text */}
-  <span className="absolute inset-0 flex items-center justify-center z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-    Download
-  </span>
-
-  {/* Glow/Blur Background */}
-  <span className="absolute left-0 top-0 w-full h-full bg-[#64ffda]/20 opacity-0 group-hover:opacity-100 transition duration-300 blur-sm"></span>
-</a>
-
-
-          <span className="bg-[#64ffda]/10 border border-[#64ffda] text-[#64ffda] px-4 py-2 rounded-full font-semibold text-sm shadow-sm">
-            Available for work
-          </span>
-        </div>
-
-        {/* Hamburger Menu (Mobile) */}
-        <div className="md:hidden flex items-center">
-          <button
-           onClick={() => setIsOpen(!isOpen)}
-           className="text-white text-2xl focus:outline-none"
-           aria-label={isOpen ? "Close menu" : "Open menu"}
-         >
-           {isOpen ? <HiX /> : <HiMenu />}
-         </button>
-        </div>
-      </div>
-
-      {/* Mobile Menu */}
-      {isOpen && (
-        <div className="md:hidden bg-[#0a192f] text-white px-4 py-6 space-y-4 shadow-lg">
-          <a href="#home" onClick={() => setIsOpen(false)} className="block hover:text-[#64ffda] transition-colors">Home</a>
-          <a href="#about" onClick={() => setIsOpen(false)} className="block hover:text-[#64ffda] transition-colors">About</a>
-          <a href="#skills" onClick={() => setIsOpen(false)} className="block hover:text-[#64ffda] transition-colors">Skills</a>
-          <a href="#projects" onClick={() => setIsOpen(false)} className="block hover:text-[#64ffda] transition-colors">Projects</a>
-          <a href="#contact" onClick={() => setIsOpen(false)} className="block hover:text-[#64ffda] transition-colors">Contact</a>
-
-          <a
-            href="/assets/resume.pdf"
-            download
-            className="mt-4 inline-block w-full text-center px-5 py-2 border border-[#64ffda] text-[#64ffda] rounded-md font-medium hover:bg-[#64ffda]/10 transition"
-          >
-            Resume
-          </a>
-        </div>
-      )}
-    </nav>
-  );
+const accentMap = {
+  home: "from-purple-400 to-indigo-400",
+  about: "from-sky-400 to-indigo-400",
+  portfolio: "from-indigo-400 to-violet-400",
+  contact: "from-violet-400 to-purple-400",
 };
 
-export default Navbar;
+export default function Navbar() {
+  const [scrolled, setScrolled] = useState(false);
+  const [active, setActive] = useState("home");
+
+  useEffect(() => {
+    const sectionElements = sections
+      .map((id) => document.getElementById(id))
+      .filter(Boolean);
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        // Get all visible sections
+        const visibleSections = entries
+          .filter((entry) => entry.isIntersecting)
+          .map((entry) => ({
+            id: entry.target.id,
+            top: entry.boundingClientRect.top,
+          }));
+
+        if (visibleSections.length > 0) {
+          // Pick the section closest to the top of viewport
+          const closestSection = visibleSections.reduce((prev, curr) =>
+            Math.abs(curr.top) < Math.abs(prev.top) ? curr : prev
+          );
+
+          setActive(closestSection.id);
+        }
+      },
+      {
+        root: null,
+        rootMargin: "-30% 0px -60% 0px",
+        threshold: 0,
+      }
+    );
+
+    sectionElements.forEach((el) => observer.observe(el));
+
+    const onScroll = () => setScrolled(window.scrollY > 80);
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("scroll", onScroll);
+    };
+  }, []);
+
+  return (
+    <nav
+      className={`fixed top-0 w-full z-50 transition-all duration-500 ${
+        scrolled
+          ? "backdrop-blur-xl bg-black/55 border-b border-white/10 shadow-lg"
+          : "bg-transparent"
+      }`}
+    >
+      <div className="max-w-7xl mx-auto px-10 py-6 flex items-center justify-between">
+        {/* NAME */}
+        <a
+          href="#home"
+          className="text-2xl md:text-3xl font-bold tracking-wide
+          bg-gradient-to-r from-purple-400 to-indigo-400
+          bg-clip-text text-transparent"
+        >
+          Swayam Sood
+        </a>
+
+        {/* LINKS */}
+        <ul className="hidden md:flex gap-14 text-lg font-medium">
+          {sections.map((sec) => {
+            const isActive = active === sec;
+
+            return (
+              <li key={sec} className="relative">
+                <a
+                  href={`#${sec}`}
+                  className={`capitalize transition-colors duration-300 ${
+                    isActive
+                      ? "text-white"
+                      : "text-slate-300 hover:text-white"
+                  }`}
+                >
+                  {sec}
+                </a>
+
+                {isActive && (
+                  <span
+                    className={`absolute -bottom-4 left-0 w-full h-[3px]
+                    bg-gradient-to-r ${accentMap[sec]}
+                    rounded-full transition-all duration-500`}
+                  />
+                )}
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+    </nav>
+  );
+}
