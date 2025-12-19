@@ -1,15 +1,27 @@
 import React from "react";
 import { motion } from "framer-motion";
+import yumlistImg from "/assets/recipe.png";
+import campusConnectImg from "/assets/campusConnect.png";
+import portfolio2 from "/assets/portfolio2.png";
 
 const projects = [
   {
-    title: "SpendSense",
-    desc: "An AI-based expense tracker that categorizes spending automatically.",
-    github: "https://github.com/SwayamS112/Spend-Sense2",
+    title: "YumList",
+    desc: "Platform where users can create, explore, and manage recipes with a clean, responsive UI.",
+    github: "https://github.com/SwayamS112/recipe_planner_project",
     live: "https://example.com/spendsense",
-    tech: ["React", "Tailwind", "MongoDB", "Chart.js"],
+    tech: ["React", "Tailwindcss", "MongoDB", "JWT", "Cloudnery", "Expess", "JavaScript"],
     date: "2025",
-    image: "https://via.placeholder.com/400x160?text=Project+Demo"
+    image: yumlistImg
+  },
+  {
+    title: "Portfolio2 Website",
+    desc: "My personal portfolio showcasing full-stack projects.",
+    github: "https://github.com/SwayamS112/portfolio2",
+    live: "https://portfolio2-sand-kappa.vercel.app/",
+    tech: ["React", "TailwindCSS", "Aceternity UI"],
+    date: "2024",
+    image: portfolio2
   },
   {
     title: "CampusConnect",
@@ -18,16 +30,7 @@ const projects = [
     live: "https://example.com/campusconnect",
     tech: ["Node", "Express", "MongoDB", "HTML", "CSS", "JavaScript"],
     date: "2023",
-    image: "https://via.placeholder.com/400x160?text=Project+Demo"
-  },
-  {
-    title: "Portfolio2 Website",
-    desc: "My personal portfolio showcasing full-stack projects.",
-    github: "https://github.com/SwayamS112/portfolio2",
-    live: "https://portfolio2-sand-kappa.vercel.app/",
-    tech: ["React", "TailwindCSS"],
-    date: "2024",
-    image: "https://via.placeholder.com/400x160?text=Project+Demo"
+    image: campusConnectImg
   },
   // {
   //   title: "Google Search Clone",
