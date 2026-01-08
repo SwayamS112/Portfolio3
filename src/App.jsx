@@ -2,7 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Hero from "./sections/Hero";
 import About from "./sections/About";
-import Portfolio from "./sections/Portfolio";
+import Portfolio from "./sections/Portfolio.jsx";
 import Contact from "./sections/Contact";
 import ProjectDetails from "./pages/ProjectDetails";
 

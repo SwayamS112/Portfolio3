@@ -3,9 +3,9 @@ import projects from "../data/projects";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 
 export default function ProjectDetails() {
-  const { slug } = useParams();
+const { id } = useParams();
   const navigate = useNavigate();
-  const project = projects.find((p) => p.slug === slug);
+const project = projects.find((p) => p.id === id);
 
   if (!project) return null;
 

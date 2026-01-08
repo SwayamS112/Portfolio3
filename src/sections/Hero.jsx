@@ -58,7 +58,7 @@ export default function Hero() {
 
           {/* Tech Pills */}
           <div className="mt-8 flex gap-3 flex-wrap">
-            {["React", "JavaScript", "Node.js", "MongoDB"].map((tech) => (
+            {["MongoDB", "Express", "ReactJS", "Node"].map((tech) => (
               <span
                 key={tech}
                 className="px-4 py-1.5 rounded-full text-sm
