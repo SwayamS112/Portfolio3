@@ -38,7 +38,7 @@ export default function About() {
         {/* RIGHT STATS */}
         <div className="grid grid-cols-2 gap-6">
           {[
-            { label: "Projects Built", value: "6+" },
+            { label: "Projects Built", value: "2+" },
             { label: "Tech Stack", value: "MERN" },
             { label: "Frontend Focus", value: "React" },
             { label: "Experience", value: "Hands-on" },

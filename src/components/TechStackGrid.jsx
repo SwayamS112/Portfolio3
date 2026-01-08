@@ -4,30 +4,46 @@ import {
   FaJs,
   FaReact,
   FaNodeJs,
-  FaDocker,
+  FaGitAlt,
 } from "react-icons/fa";
 import {
   SiTailwindcss,
   SiMongodb,
-  SiPostgresql,
   SiExpress,
   SiTypescript,
   SiJsonwebtokens,
+  SiMysql,
+  SiShadcnui,
+  SiSteamworks,
+  SiReactrouter,
+  SiFramer,
+  SiChartdotjs,
+  SiVercel,
+  SiAxios,
+  SiCloudinary,
 } from "react-icons/si";
 
 const techStack = [
   { name: "HTML", icon: FaHtml5, color: "text-orange-500" },
   { name: "CSS", icon: FaCss3Alt, color: "text-blue-500" },
   { name: "JavaScript", icon: FaJs, color: "text-yellow-400" },
-  { name: "TypeScript", icon: SiTypescript, color: "text-blue-400" },
   { name: "React", icon: FaReact, color: "text-cyan-400" },
   { name: "Tailwind CSS", icon: SiTailwindcss, color: "text-sky-400" },
   { name: "Node.js", icon: FaNodeJs, color: "text-green-500" },
   { name: "Express.js", icon: SiExpress, color: "text-slate-300" },
   { name: "MongoDB", icon: SiMongodb, color: "text-green-400" },
-  { name: "PostgreSQL", icon: SiPostgresql, color: "text-blue-300" },
+  { name: "MySQL", icon: SiMysql, color: "text-blue-300" },
+  { name: "TypeScript", icon: SiTypescript, color: "text-blue-400" },
   { name: "JWT", icon: SiJsonwebtokens, color: "text-pink-400" },
-  { name: "Docker", icon: FaDocker, color: "text-sky-500" },
+  { name: "Git", icon: FaGitAlt, color: "text-orange-500" },
+  { name: "ShadcnUi", icon: SiShadcnui, color: "text-sky-500" },
+  { name: "React Router", icon: SiReactrouter, color: "text-red-400" },
+  { name: "Framer Motion", icon: SiFramer, color: "text-pink-400" },
+  { name: "Chart.js", icon: SiChartdotjs, color: "text-orange-400" },
+  { name: "Vercel", icon: SiVercel, color: "text-white" },
+  { name: "Cloudinary", icon: SiCloudinary, color: "text-blue-300" },
+  { name: "Axios", icon: SiAxios, color: "text-purple-400" },
+
 ];
 
 export default function TechStackGrid() {
